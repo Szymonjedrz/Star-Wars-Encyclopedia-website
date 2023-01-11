@@ -1,0 +1,62 @@
+<! DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Star Wars API</title>
+	
+	<!-- reference CSS file -->
+	<link rel="stylesheet"
+		  th:href="@{/css/demo.css}" />
+		  
+</head>
+
+<body>
+
+	<h2>Star Wars Vehicles Menu</h2>
+	<hr>
+	
+	<p>
+		<a th:href="@{/starwars/vehicles}">All Vehicles</a>
+	</p>
+	
+	<form th:action="@{/starwars/vehicles/page/}">
+	<p>
+		<a>Search for Vehicles by Page (1-4):</a>
+		<input type="search" name="page" />
+		<input type="submit" value="Search" />
+	</p>
+	</form>
+	
+	<form th:action="@{/starwars/vehicles/id/}">
+	<p>
+		<a>Search for Vehicles by Id (1-76):</a>
+		<input type="search" name="id" />
+		<input type="submit" value="Search" />
+	</p>
+	</form>
+	
+	<form th:action="@{/starwars/vehicles/search/}">
+	<p>
+		<a>Search for Vehicles by Name:</a>
+		<input type="search" name="name" />
+		<input type="submit" value="Search" />
+	</p>
+	</form>
+	
+	<p>
+		<a th:href="@{/starwars/swvehicles/list}">Vehicles Interactive List</a>
+	</p>
+	
+	<hr>
+	
+	<p>
+		<a th:href="@{/starwars/menu}">Back to the Main Menu</a>
+	</p>
+	
+	<img th:src="@{/images/d12db247deace4b2fac10c5a10b5042b.jpg}"/>
+
+	<p th:text="'Time on server is ' + ${theDate}" class="funny" />
+
+</body>
+
+</html>

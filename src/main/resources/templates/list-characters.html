@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>Star Wars API</title>
+</head>
+
+<body>
+
+<div class="container">
+
+	<h3>Star Wars Characters List</h3>
+	<hr>
+	
+	<form th:action="@{/starwars/swcharacters/search}" class="form-inline">
+		<a th:href="@{/starwars/swcharacters/add}"
+			class="btn btn-primary btn-sm mr-5 mb-3">
+			Add Star Wars Character
+		</a>
+
+		<input class="form-control  ml-5 mr-sm-2 mb-3" type="search" name="characterName" placeholder="Search by name"/>
+
+		<button class="btn btn-success mb-3" type="submit">Search</button>
+    </form>
+	
+	<table class="table table-bordered table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th>Id</th>
+				<th>Name</th>
+				<th>Height</th>
+				<th>Mass</th>
+				<th>Hair Color</th>
+				<th>Skin Color</th>
+				<th>Eye Color</th>
+				<th>Birth Year</th>
+				<th>Gender</th>
+				<th>Action</th>			
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="tempSWCharacter : ${swcharacters}">
+			
+				<td th:text="${tempSWCharacter.id}" />
+				<td th:text="${tempSWCharacter.name}" />	
+				<td th:text="${tempSWCharacter.height}" />	
+				<td th:text="${tempSWCharacter.mass}" />
+				<td th:text="${tempSWCharacter.hair_color}" />	
+				<td th:text="${tempSWCharacter.skin_color}" />	
+				<td th:text="${tempSWCharacter.eye_color}" />
+				<td th:text="${tempSWCharacter.birth_year}" />	
+				<td th:text="${tempSWCharacter.gender}" />	
+				
+				<td>
+					<a th:href="@{/starwars/swcharacters/update(swcharacterId=${tempSWCharacter.id})}"
+					   class="btn btn-info btn-sm">
+					   Update
+					</a>
+				
+					<a th:href="@{/starwars/swcharacters/delete(swcharacterId=${tempSWCharacter.id})}"
+					   class="btn btn-danger btn-sm"
+					   onclick="if (!(confirm('Are you sure you want to delete this Star Wars Character?'))) return false">
+					   Delete
+					</a>		
+				</td>			
+			</tr>
+		</tbody>		
+	</table>
+	
+	<p>
+		<a th:href="@{/starwars/characters/menu}">Back to the Characters Menu</a>
+	</p>
+	
+</div>
+	
+</body>
+</html>
+
+
+

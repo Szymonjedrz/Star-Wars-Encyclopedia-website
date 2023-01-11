@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>Star Wars API</title>
+</head>
+
+<body>
+
+	<div class="container">
+	
+		<h3>Star Wars Starships List</h3>
+		<hr>
+		
+		<p class="h4 mb-4">Save Starship</p>
+	
+		<form th:action="@{/starwars/swstarships/save}"
+			  th:object="${starship}" method="POST">
+		
+			<input type="hidden" th:field="*{id}" />
+			
+			<input type="text" th:field="*{name}"
+					class="form-control mb-4 col-4" placeholder="Name">
+
+			<input type="text" th:field="*{model}"
+					class="form-control mb-4 col-4" placeholder="Model">
+
+			<input type="text" th:field="*{manufacturer}"
+					class="form-control mb-4 col-4" placeholder="Manufacturer">
+					
+			<input type="text" th:field="*{cost_in_credits}"
+					class="form-control mb-4 col-4" placeholder="Cost In Credits">
+
+			<input type="text" th:field="*{length}"
+					class="form-control mb-4 col-4" placeholder="Length">
+
+			<input type="text" th:field="*{max_atmosphering_speed}"
+					class="form-control mb-4 col-4" placeholder="Max Atmosphering Speed">
+					
+			<input type="text" th:field="*{crew}"
+					class="form-control mb-4 col-4" placeholder="Crew">
+
+			<input type="text" th:field="*{passengers}"
+					class="form-control mb-4 col-4" placeholder="Passengers">
+					
+			<input type="text" th:field="*{cargo_capacity}"
+					class="form-control mb-4 col-4" placeholder="Cargo Capacity">
+					
+			<input type="text" th:field="*{consumables}"
+					class="form-control mb-4 col-4" placeholder="Consumables">
+					
+			<input type="text" th:field="*{hyperdrive_rating}"
+					class="form-control mb-4 col-4" placeholder="Hyperdrive Rating">
+					
+			<input type="text" th:field="*{starship_class}"
+					class="form-control mb-4 col-4" placeholder="Starship Class">
+				
+			<button type="submit" class="btn btn-info col-2">Save</button>
+						
+		</form>
+	
+		<hr>
+		<a th:href="@{/starwars/swstarships/list}">Back to the Starships List</a>
+		
+	</div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
