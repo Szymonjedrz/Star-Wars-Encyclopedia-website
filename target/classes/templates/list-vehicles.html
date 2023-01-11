@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>Star Wars API</title>
+</head>
+
+<body>
+
+<div class="container">
+
+	<h3>Star Wars Vehicles List</h3>
+	<hr>
+	
+	<form th:action="@{/starwars/swvehicles/search}" class="form-inline">
+		<a th:href="@{/starwars/swvehicles/add}"
+			class="btn btn-primary btn-sm mr-5 mb-3">
+			Add Star Wars Vehicle
+		</a>
+
+		<input class="form-control  ml-5 mr-sm-2 mb-3" type="search" name="vehicleName" placeholder="Search by vehicle name"/>
+
+		<button class="btn btn-success mb-3" type="submit">Search</button>
+		
+    </form>
+	
+	<table class="table table-bordered table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th>Id</th>
+				<th>Name</th>
+				<th>Model</th>
+				<th>Manufacturer</th>
+				<th>Cost In Credits</th>
+				<th>Length</th>
+				<th>Max Atmosphering Speed</th>
+				<th>Crew</th>
+				<th>Passengers</th>
+				<th>Cargo Capacity</th>
+				<th>Consumables</th>
+				<th>Vehicle Class</th>
+				<th>Action</th>			
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="tempVehicle : ${vehicles}">
+			
+				<td th:text="${tempVehicle.id}" />
+				<td th:text="${tempVehicle.name}" />	
+				<td th:text="${tempVehicle.model}" />	
+				<td th:text="${tempVehicle.manufacturer}" />
+				<td th:text="${tempVehicle.cost_in_credits}" />	
+				<td th:text="${tempVehicle.length}" />	
+				<td th:text="${tempVehicle.max_atmosphering_speed}" />
+				<td th:text="${tempVehicle.crew}" />
+				<td th:text="${tempVehicle.passengers}" />	
+				<td th:text="${tempVehicle.cargo_capacity}" />	
+				<td th:text="${tempVehicle.consumables}" />
+				<td th:text="${tempVehicle.vehicle_class}" />		
+				
+				<td>
+					<a th:href="@{/starwars/swvehicles/update(vehicleId=${tempVehicle.id})}"
+					   class="btn btn-info btn-sm">
+					   Update
+					</a>
+				
+					<a th:href="@{/starwars/swvehicles/delete(vehicleId=${tempVehicle.id})}"
+					   class="btn btn-danger btn-sm"
+					   onclick="if (!(confirm('Are you sure you want to delete this Star Wars Vehicle?'))) return false">
+					   Delete
+					</a>		
+				</td>			
+			</tr>
+		</tbody>		
+	</table>
+	
+	<p>
+		<a th:href="@{/starwars/vehicles/menu}">Back to the Vehicles Menu</a>
+	</p>
+	
+</div>
+	
+</body>
+</html>
+
+
+

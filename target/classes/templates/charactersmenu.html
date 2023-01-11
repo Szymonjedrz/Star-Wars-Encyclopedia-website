@@ -1,0 +1,62 @@
+<! DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Star Wars API</title>
+	
+	<!-- reference CSS file -->
+	<link rel="stylesheet"
+		  th:href="@{/css/demo.css}" />
+		  
+</head>
+
+<body>
+
+	<h2>Star Wars Characters Menu</h2>
+	<hr>
+	
+	<p>
+		<a th:href="@{/starwars/characters}">All Characters</a>
+	</p>
+	
+	<form th:action="@{/starwars/characters/page/}">
+	<p>
+		<a>Search for Characters by Page (1-9):</a>
+		<input type="search" name="page" />
+		<input type="submit" value="Search" />
+	</p>
+	</form>
+	
+	<form th:action="@{/starwars/characters/id/}">
+	<p>
+		<a>Search for Characters by Id (1-83):</a>
+		<input type="search" name="id" />
+		<input type="submit" value="Search" />
+	</p>
+	</form>
+	
+	<form th:action="@{/starwars/characters/search/}">
+	<p>
+		<a>Search for Characters by Name:</a>
+		<input type="search" name="name" />
+		<input type="submit" value="Search" />
+	</p>
+	</form>
+	
+	<p>
+		<a th:href="@{/starwars/swcharacters/list}">Characters Interactive List</a>
+	</p>
+	
+	<hr>
+	
+	<p>
+		<a th:href="@{/starwars/menu}">Back to the Main Menu</a>
+	</p>
+	
+	<img th:src="@{/images/star-wars-terms.png}"/>
+
+	<p th:text="'Time on server is ' + ${theDate}" class="funny" />
+
+</body>
+
+</html>

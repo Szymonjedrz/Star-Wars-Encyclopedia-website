@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>Star Wars API</title>
+</head>
+
+<body>
+
+	<div class="container">
+	
+		<h3>Star Wars Species List</h3>
+		<hr>
+		
+		<p class="h4 mb-4">Save Species</p>
+	
+		<form th:action="@{/starwars/swspecies/save}"
+			  th:object="${species}" method="POST">
+		
+			<input type="hidden" th:field="*{id}" />
+			
+			<input type="text" th:field="*{name}"
+					class="form-control mb-4 col-4" placeholder="Name">
+
+			<input type="text" th:field="*{classification}"
+					class="form-control mb-4 col-4" placeholder="Classification">
+
+			<input type="text" th:field="*{designation}"
+					class="form-control mb-4 col-4" placeholder="Designation">
+					
+			<input type="text" th:field="*{average_height}"
+					class="form-control mb-4 col-4" placeholder="Average Height">
+
+			<input type="text" th:field="*{skin_colors}"
+					class="form-control mb-4 col-4" placeholder="Skin Colors">
+					
+			<input type="text" th:field="*{hair_colors}"
+					class="form-control mb-4 col-4" placeholder="Hair Colors">
+					
+			<input type="text" th:field="*{eye_colors}"
+					class="form-control mb-4 col-4" placeholder="Eye Colors">
+
+			<input type="text" th:field="*{average_lifespan}"
+					class="form-control mb-4 col-4" placeholder="Average Lifespan">
+					
+			<input type="text" th:field="*{homeworld}"
+					class="form-control mb-4 col-4" placeholder="Homeworld">
+					
+			<input type="text" th:field="*{language}"
+					class="form-control mb-4 col-4" placeholder="Language">
+				
+			<button type="submit" class="btn btn-info col-2">Save</button>
+						
+		</form>
+	
+		<hr>
+		<a th:href="@{/starwars/swspecies/list}">Back to the Species List</a>
+		
+	</div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
