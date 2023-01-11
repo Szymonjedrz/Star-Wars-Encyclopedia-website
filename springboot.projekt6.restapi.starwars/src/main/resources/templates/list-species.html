@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>Star Wars API</title>
+</head>
+
+<body>
+
+<div class="container">
+
+	<h3>Star Wars Species List</h3>
+	<hr>
+	
+	<form th:action="@{/starwars/swspecies/search}" class="form-inline">
+		<a th:href="@{/starwars/swspecies/add}"
+			class="btn btn-primary btn-sm mr-5 mb-3">
+			Add Star Wars Species
+		</a>
+
+		<input class="form-control  ml-5 mr-sm-2 mb-3" type="search" name="speciesName" placeholder="Search by species name"/>
+
+		<button class="btn btn-success mb-3" type="submit">Search</button>
+		
+    </form>
+	
+	<table class="table table-bordered table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th>Id</th>
+				<th>Name</th>
+				<th>Classification</th>
+				<th>Designation</th>
+				<th>Average Height</th>
+				<th>Skin Colors</th>
+				<th>Hair Colors</th>
+				<th>Eye Colors</th>
+				<th>Average Lifespan</th>
+				<th>Homeworld</th>
+				<th>Language</th>
+				<th>Action</th>			
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="tempSpecies : ${species}">
+			
+				<td th:text="${tempSpecies.id}" />
+				<td th:text="${tempSpecies.name}" />	
+				<td th:text="${tempSpecies.classification}" />	
+				<td th:text="${tempSpecies.designation}" />
+				<td th:text="${tempSpecies.average_height}" />	
+				<td th:text="${tempSpecies.skin_colors}" />	
+				<td th:text="${tempSpecies.hair_colors}" />
+				<td th:text="${tempSpecies.eye_colors}" />	
+				<td th:text="${tempSpecies.average_lifespan}" />	
+				<td th:text="${tempSpecies.homeworld}" />
+				<td th:text="${tempSpecies.language}" />		
+				
+				<td>
+					<a th:href="@{/starwars/swspecies/update(speciesId=${tempSpecies.id})}"
+					   class="btn btn-info btn-sm">
+					   Update
+					</a>
+				
+					<a th:href="@{/starwars/swspecies/delete(speciesId=${tempSpecies.id})}"
+					   class="btn btn-danger btn-sm"
+					   onclick="if (!(confirm('Are you sure you want to delete this Star Wars Species?'))) return false">
+					   Delete
+					</a>		
+				</td>			
+			</tr>
+		</tbody>		
+	</table>
+	
+	<p>
+		<a th:href="@{/starwars/species/menu}">Back to the Species Menu</a>
+	</p>
+	
+</div>
+	
+</body>
+</html>
+
+
+

@@ -1,0 +1,62 @@
+<! DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Star Wars API</title>
+	
+	<!-- reference CSS file -->
+	<link rel="stylesheet"
+		  th:href="@{/css/demo.css}" />
+		  
+</head>
+
+<body>
+
+	<h2>Star Wars Planets Menu</h2>
+	<hr>
+	
+	<p>
+		<a th:href="@{/starwars/planets}">All Planets</a>
+	</p>
+	
+	<form th:action="@{/starwars/planets/page/}">
+	<p>
+		<a>Search for Planets by Page (1-6):</a>
+		<input type="search" name="page" />
+		<input type="submit" value="Search" />
+	</p>
+	</form>
+	
+	<form th:action="@{/starwars/planets/id/}">
+	<p>
+		<a>Search for Planets by Id (1-60):</a>
+		<input type="search" name="id" />
+		<input type="submit" value="Search" />
+	</p>
+	</form>
+	
+	<form th:action="@{/starwars/planets/search/}">
+	<p>
+		<a>Search for Planets by Name:</a>
+		<input type="search" name="name" />
+		<input type="submit" value="Search" />
+	</p>
+	</form>
+	
+	<p>
+		<a th:href="@{/starwars/swplanets/list}">Planets Interactive List</a>
+	</p>
+	
+	<hr>
+	
+	<p>
+		<a th:href="@{/starwars/menu}">Back to the Main Menu</a>
+	</p>
+	
+	<img th:src="@{/images/realistic_star_wars_planets_by_tschreurs_d9ik8xi-fullview.jpg}"/>
+
+	<p th:text="'Time on server is ' + ${theDate}" class="funny" />
+
+</body>
+
+</html>

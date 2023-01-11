@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<title>Star Wars API</title>
+</head>
+
+<body>
+
+<div class="container">
+
+	<h3>Star Wars Planets List</h3>
+	<hr>
+	
+	<form th:action="@{/starwars/swplanets/search}" class="form-inline">
+		<a th:href="@{/starwars/swplanets/add}"
+			class="btn btn-primary btn-sm mr-5 mb-3">
+			Add Star Wars Planet
+		</a>
+
+		<input class="form-control  ml-5 mr-sm-2 mb-3" type="search" name="planetName" placeholder="Search by planet name"/>
+
+		<button class="btn btn-success mb-3" type="submit">Search</button>
+    </form>
+	
+	<table class="table table-bordered table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th>Id</th>
+				<th>Name</th>
+				<th>Rotation Period</th>
+				<th>Orbital Period</th>
+				<th>Diameter</th>
+				<th>Climate</th>
+				<th>Gravity</th>
+				<th>Terrain</th>
+				<th>Surface Water</th>
+				<th>Population</th>
+				<th>Action</th>			
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr th:each="tempPlanet : ${planets}">
+			
+				<td th:text="${tempPlanet.id}" />
+				<td th:text="${tempPlanet.name}" />	
+				<td th:text="${tempPlanet.rotation_period}" />	
+				<td th:text="${tempPlanet.orbital_period}" />
+				<td th:text="${tempPlanet.diameter}" />	
+				<td th:text="${tempPlanet.climate}" />	
+				<td th:text="${tempPlanet.gravity}" />
+				<td th:text="${tempPlanet.terrain}" />	
+				<td th:text="${tempPlanet.surface_water}" />	
+				<td th:text="${tempPlanet.population}" />	
+				
+				<td>
+					<a th:href="@{/starwars/swplanets/update(planetId=${tempPlanet.id})}"
+					   class="btn btn-info btn-sm">
+					   Update
+					</a>
+				
+					<a th:href="@{/starwars/swplanets/delete(planetId=${tempPlanet.id})}"
+					   class="btn btn-danger btn-sm"
+					   onclick="if (!(confirm('Are you sure you want to delete this Star Wars Planet?'))) return false">
+					   Delete
+					</a>		
+				</td>			
+			</tr>
+		</tbody>		
+	</table>
+	
+	<p>
+		<a th:href="@{/starwars/planets/menu}">Back to the Planets Menu</a>
+	</p>
+	
+</div>
+	
+</body>
+</html>
+
+
+
