@@ -75,9 +75,9 @@ public class PlanetDAOImpl implements PlanetDAO {
 		
 		Session currentSession = entityManager.unwrap(Session.class);
 		
-		Query <Planet> theQuery = currentSession.createQuery("from Planet where name=:name", Planet.class);
+		Query <Planet> theQuery = currentSession.createQuery("from Planet where name like :name", Planet.class);
 		
-		theQuery.setParameter("name", theName);
+		theQuery.setParameter("name", "%" + theName + "%");
 		
 		List <Planet> planets = theQuery.getResultList();
 		

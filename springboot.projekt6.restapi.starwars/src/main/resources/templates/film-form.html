@@ -2,38 +2,46 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	<!-- reference CSS file -->
+	<link rel="stylesheet" th:href="@{/css/demo.css}" />
+
+	<link href="https://fonts.cdnfonts.com/css/star-wars" rel="stylesheet">
+	<style>
+		body {
+			font-family: 'Star Wars', sans-serif;
+		}
+	</style>
 
 	<title>Star Wars API</title>
 </head>
 
 <body>
 
-	<div class="container">
-	
-		<h3>Star Wars Films List</h3>
+	<div>
+		<div class="mt-3 ml-5">
+			<h2>Star Wars Films List</h2>
+		</div>
+
 		<hr>
 		
-		<p class="h4 mb-4">Save Film</p>
+		<p class="h4 mb-4 ml-5">Add star Wars Film</p>
 	
-		<form th:action="@{/starwars/swfilms/save}"
+		<form class="ml-5" th:action="@{/starwars/swfilms/save}"
 			  th:object="${film}" method="POST">
 		
 			<input type="hidden" th:field="*{id}" />
 			
 			<input type="text" th:field="*{title}"
-					class="form-control mb-4 col-4" placeholder="Title">
+					class="form-control mb-4 col-4" placeholder="title">
 
 			<input type="text" th:field="*{episode_id}"
-					class="form-control mb-4 col-4" placeholder="Episode Id">
+					class="form-control mb-4 col-4" placeholder="Episode id">
 
 			<input type="text" th:field="*{opening_crawl}"
-					class="form-control mb-4 col-4" placeholder="Opening Crawl">
+					class="form-control mb-4 col-4" placeholder="opening Crawl">
 					
 			<input type="text" th:field="*{director}"
 					class="form-control mb-4 col-4" placeholder="Director">
@@ -44,16 +52,17 @@
 			<input type="text" th:field="*{release_date}"
 					class="form-control mb-4 col-4" placeholder="Release Date">
 				
-			<button type="submit" class="btn btn-info col-2">Save</button>
-						
+			<button type="submit" class="btn btn-primary col-2">Save Film</button>
 		</form>
 	
 		<hr>
-		<a th:href="@{/starwars/swfilms/list}">Back to the Films List</a>
+
+		<div class="mt-3 mb-3 ml-5">
+			<a th:href="@{/starwars/swfilms/list}" class="btn btn-info">Back to the Films List</a>
+		</div>
 		
 	</div>
 </body>
-
 </html>
 
 

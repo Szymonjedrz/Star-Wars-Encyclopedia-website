@@ -2,26 +2,35 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<link href="https://fonts.cdnfonts.com/css/star-wars" rel="stylesheet">
+	<style>
+		body {
+			font-family: 'Star Wars', sans-serif;
+		}
+	</style>
 
 	<title>Star Wars API</title>
 </head>
 
 <body>
 
-	<div class="container">
-	
-		<h3>Star Wars Characters List</h3>
+	<div>
+		<div class="mt-3 ml-5">
+			<h2>Star Wars Characters List</h2>
+		</div>
+
 		<hr>
-		
-		<p class="h4 mb-4">Save Character</p>
+
+		<p class="h4 mb-4 ml-5">Add star Wars Character</p>
 	
-		<form th:action="@{/starwars/swcharacters/save}"
+		<form class="ml-5" th:action="@{/starwars/swcharacters/save}"
 			  th:object="${swcharacter}" method="POST">
 		
 			<input type="hidden" th:field="*{id}" />
@@ -45,17 +54,25 @@
 					class="form-control mb-4 col-4" placeholder="Eye Color">
 					
 			<input type="text" th:field="*{birth_year}"
-					class="form-control mb-4 col-4" placeholder="Birth Year">
+					class="form-control mb-4 col-4" placeholder="Birth year">
 
 			<input type="text" th:field="*{gender}"
 					class="form-control mb-4 col-4" placeholder="Gender">
-				
-			<button type="submit" class="btn btn-info col-2">Save</button>
-						
+
+			<input type="text" th:field="*{species}"
+				   class="form-control mb-4 col-4" placeholder="Species">
+
+			<input type="text" th:field="*{homeworld}"
+				   class="form-control mb-4 col-4" placeholder="Homeworld">
+
+			<button type="submit" class="btn btn-primary col-2">Save Character</button>
 		</form>
 	
 		<hr>
-		<a th:href="@{/starwars/swcharacters/list}">Back to the Characters List</a>
+
+		<div class="mt-3 mb-3 ml-5">
+			<a th:href="@{/starwars/swcharacters/list}" class="btn btn-info">Back to the Characters List</a>
+		</div>
 		
 	</div>
 </body>

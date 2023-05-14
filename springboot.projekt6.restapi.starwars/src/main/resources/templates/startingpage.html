@@ -1,0 +1,48 @@
+<! DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Star Wars API</title>
+	
+	<!-- reference CSS file -->
+	<link rel="stylesheet" th:href="@{/css/demo.css}" />
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<link href="https://fonts.cdnfonts.com/css/star-wars" rel="stylesheet">
+	<style>
+		body {
+			font-family: 'Star Wars', sans-serif;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="mt-3 ml-5">
+		<h2>Star Wars APi</h2>
+	</div>
+
+	<hr>
+
+	<div class="h5 mt-4 ml-5">
+		<p>
+			Welcome to the star Wars APi, feel free to explore the star Wars universe.
+		</p>
+		<br>
+		<p style="font-style: italic">
+			May the Force be with you!
+		</p>
+	</div>
+	
+	<hr>
+
+	<div class="h5 mt-4 ml-5">
+		<a th:href="@{/starwars/menu}">Main Menu</a>
+	</div>
+	
+	<img class="mt-3 ml-4 col-7" th:src="@{/images/Star_Wars_Logo.svg}"/>
+
+</body>
+</html>

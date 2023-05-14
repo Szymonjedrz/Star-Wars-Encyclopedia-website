@@ -41,15 +41,15 @@ public class SWCharacter {
 	
 	@Column(name = "gender")
 	private String gender;
+
+	@Column(name = "species")
+	private String species;
 	
-//	@Column(name = "homeworld")
-//	private String homeworld;
+	@Column(name = "homeworld")
+	private String homeworld;
 	
 //	@Column(name = "films")
 //	private String[] films;
-//	
-//	@Column(name = "species")
-//	private String[] species;
 //	
 //	@Column(name = "vehicles")
 //	private String[] vehicles;
@@ -70,8 +70,7 @@ public class SWCharacter {
 		
 	}
 
-	public SWCharacter(String name, String height, String mass, String hair_color, String skin_color, String eye_color,
-		String birth_year, String gender) {
+	public SWCharacter(String name, String height, String mass, String hair_color, String skin_color, String eye_color, String birth_year, String gender, String species, String homeworld) {
 		this.name = name;
 		this.height = height;
 		this.mass = mass;
@@ -80,11 +79,11 @@ public class SWCharacter {
 		this.eye_color = eye_color;
 		this.birth_year = birth_year;
 		this.gender = gender;
+		this.species = species;
+		this.homeworld = homeworld;
 	}
 
-
-
-//	public SWCharacter(String name, String height, String mass, String hair_color, String skin_color, String eye_color,
+	//	public SWCharacter(String name, String height, String mass, String hair_color, String skin_color, String eye_color,
 //			String birth_year, String gender, String homeworld, String[] films, String[] species, String[] vehicles,
 //			String[] starships, String created, String edited, String url) {
 //		this.name = name;
@@ -177,13 +176,21 @@ public class SWCharacter {
 		this.gender = gender;
 	}
 
-//	public String getHomeworld() {
-//		return homeworld;
-//	}
-//
-//	public void setHomeworld(String homeworld) {
-//		this.homeworld = homeworld;
-//	}
+	public String getSpecies() {
+		return species;
+	}
+
+	public void setSpecies(String species) {
+		this.species = species;
+	}
+
+	public String getHomeworld() {
+		return homeworld;
+	}
+
+	public void setHomeworld(String homeworld) {
+		this.homeworld = homeworld;
+	}
 
 //	public String[] getFilms() {
 //		return films;
@@ -191,14 +198,6 @@ public class SWCharacter {
 //
 //	public void setFilms(String[] films) {
 //		this.films = films;
-//	}
-//
-//	public String[] getSpecies() {
-//		return species;
-//	}
-//
-//	public void setSpecies(String[] species) {
-//		this.species = species;
 //	}
 //
 //	public String[] getVehicles() {
@@ -249,11 +248,21 @@ public class SWCharacter {
 //				+ Arrays.toString(species) + ", vehicles=" + Arrays.toString(vehicles) + ", starships="
 //				+ Arrays.toString(starships) + ", created=" + created + ", edited=" + edited + ", url=" + url + "]";
 //	}
-	
+
 	@Override
 	public String toString() {
-		return "SWCharacter [id=" + id + ", name=" + name + ", height=" + height + ", mass=" + mass + ", hair_color="
-				+ hair_color + ", skin_color=" + skin_color + ", eye_color=" + eye_color + ", birth_year=" + birth_year
-				+ ", gender=" + gender + "]";
+		return "SWCharacter{" +
+				"id=" + id +
+				", name='" + name + '\'' +
+				", height='" + height + '\'' +
+				", mass='" + mass + '\'' +
+				", hair_color='" + hair_color + '\'' +
+				", skin_color='" + skin_color + '\'' +
+				", eye_color='" + eye_color + '\'' +
+				", birth_year='" + birth_year + '\'' +
+				", gender='" + gender + '\'' +
+				", species='" + species + '\'' +
+				", homeworld='" + homeworld + '\'' +
+				'}';
 	}
 }

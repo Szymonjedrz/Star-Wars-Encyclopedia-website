@@ -75,9 +75,9 @@ public class FilmDAOImpl implements FilmDAO {
 		
 		Session currentSession = entityManager.unwrap(Session.class);
 		
-		Query <Film> theQuery = currentSession.createQuery("from Film where title=:title", Film.class);
+		Query <Film> theQuery = currentSession.createQuery("from Film where title like :title", Film.class);
 		
-		theQuery.setParameter("title", theName);
+		theQuery.setParameter("title", "%" + theName + "%");
 		
 		List <Film> films = theQuery.getResultList();
 		

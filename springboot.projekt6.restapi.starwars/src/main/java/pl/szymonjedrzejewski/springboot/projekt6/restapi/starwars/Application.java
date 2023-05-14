@@ -1,7 +1,15 @@
 package pl.szymonjedrzejewski.springboot.projekt6.restapi.starwars;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+import pl.szymonjedrzejewski.springboot.projekt6.restapi.starwars.entity.SWCharacter;
+import pl.szymonjedrzejewski.springboot.projekt6.restapi.starwars.service.SWCharacterService;
+import java.io.InputStream;
+import java.util.List;
 
 @SpringBootApplication
 public class Application {
@@ -12,14 +20,14 @@ public class Application {
 	
 //	@Bean
 //	CommandLineRunner runner(SWCharacterService swCharacterService) {
-//		
+//
 //		return args -> {
-//			
+//
 //			// read JSON and write to DB
 //			ObjectMapper mapper = new ObjectMapper();
-//			TypeReference <List <SWCharacter>> typeReference = new TypeReference <List <SWCharacter>>(){};
+//			TypeReference<List<SWCharacter>> typeReference = new TypeReference <List <SWCharacter>>(){};
 //			InputStream inputStream = TypeReference.class.getResourceAsStream("/json/charactersData.json");
-//			
+//
 //			try {
 //				List <SWCharacter> swCharacters = mapper.readValue(inputStream, typeReference);
 //				swCharacterService.save(swCharacters);

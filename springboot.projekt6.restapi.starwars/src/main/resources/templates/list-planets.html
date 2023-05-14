@@ -2,41 +2,55 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	<link href="https://fonts.cdnfonts.com/css/star-wars" rel="stylesheet">
+	<style>
+		body {
+			font-family: 'Star Wars', sans-serif;
+			font-size: 15px;
+		}
+	</style>
 
 	<title>Star Wars API</title>
 </head>
 
 <body>
+<div>
 
-<div class="container">
+	<div class="mt-3 ml-5">
+		<h2>Star Wars Planets List</h2>
+	</div>
 
-	<h3>Star Wars Planets List</h3>
 	<hr>
 	
-	<form th:action="@{/starwars/swplanets/search}" class="form-inline">
+	<form th:action="@{/starwars/swplanets/search}" class="form-inline ml-5">
 		<a th:href="@{/starwars/swplanets/add}"
-			class="btn btn-primary btn-sm mr-5 mb-3">
-			Add Star Wars Planet
+			class="btn btn-primary mr-5 mb-3">
+			Add star Wars Planet
 		</a>
 
-		<input class="form-control  ml-5 mr-sm-2 mb-3" type="search" name="planetName" placeholder="Search by planet name"/>
+		<input class="form-control mr-sm-2 mb-3 col-3" type="search" name="planetName" placeholder="Search by Planet name"/>
 
 		<button class="btn btn-success mb-3" type="submit">Search</button>
+
+		<a th:href="@{/starwars/swplanets/list}"
+		   class="btn btn-secondary ml-2 mb-3">
+			Reset filter
+		</a>
+
+		<a th:href="@{/starwars/planets/menu}" class="btn btn-info ml-5 mb-3">Back to the Planets Menu</a>
     </form>
-	
-	<table class="table table-bordered table-striped">
+
+	<div class="table-responsive">
+		<table class="table table-bordered table-striped">
 		<thead class="thead-dark">
 			<tr>
-				<th>Id</th>
+				<th>id</th>
 				<th>Name</th>
 				<th>Rotation Period</th>
-				<th>Orbital Period</th>
+				<th>orbital Period</th>
 				<th>Diameter</th>
 				<th>Climate</th>
 				<th>Gravity</th>
@@ -63,8 +77,8 @@
 				
 				<td>
 					<a th:href="@{/starwars/swplanets/update(planetId=${tempPlanet.id})}"
-					   class="btn btn-info btn-sm">
-					   Update
+					    class="btn btn-info btn-sm">
+						update
 					</a>
 				
 					<a th:href="@{/starwars/swplanets/delete(planetId=${tempPlanet.id})}"
@@ -76,13 +90,8 @@
 			</tr>
 		</tbody>		
 	</table>
-	
-	<p>
-		<a th:href="@{/starwars/planets/menu}">Back to the Planets Menu</a>
-	</p>
-	
+	</div>
 </div>
-	
 </body>
 </html>
 

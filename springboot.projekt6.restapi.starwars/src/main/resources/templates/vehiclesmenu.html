@@ -3,60 +3,59 @@
 
 <head>
 	<title>Star Wars API</title>
-	
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
 	<!-- reference CSS file -->
-	<link rel="stylesheet"
-		  th:href="@{/css/demo.css}" />
-		  
+	<link rel="stylesheet" th:href="@{/css/demo.css}" />
+
+	<link href="https://fonts.cdnfonts.com/css/star-wars" rel="stylesheet">
+	<style>
+		body {
+			font-family: 'Star Wars', sans-serif;
+		}
+	</style>
 </head>
 
 <body>
 
-	<h2>Star Wars Vehicles Menu</h2>
-	<hr>
-	
-	<p>
-		<a th:href="@{/starwars/vehicles}">All Vehicles</a>
-	</p>
-	
-	<form th:action="@{/starwars/vehicles/page/}">
-	<p>
-		<a>Search for Vehicles by Page (1-4):</a>
-		<input type="search" name="page" />
-		<input type="submit" value="Search" />
-	</p>
-	</form>
-	
-	<form th:action="@{/starwars/vehicles/id/}">
-	<p>
-		<a>Search for Vehicles by Id (1-76):</a>
-		<input type="search" name="id" />
-		<input type="submit" value="Search" />
-	</p>
-	</form>
-	
-	<form th:action="@{/starwars/vehicles/search/}">
-	<p>
-		<a>Search for Vehicles by Name:</a>
-		<input type="search" name="name" />
-		<input type="submit" value="Search" />
-	</p>
-	</form>
-	
-	<p>
-		<a th:href="@{/starwars/swvehicles/list}">Vehicles Interactive List</a>
-	</p>
-	
-	<hr>
-	
-	<p>
-		<a th:href="@{/starwars/menu}">Back to the Main Menu</a>
-	</p>
-	
-	<img th:src="@{/images/d12db247deace4b2fac10c5a10b5042b.jpg}"/>
+	<div class="mt-3 ml-5">
+		<h2>Star Wars Vehicles Menu</h2>
+	</div>
 
-	<p th:text="'Time on server is ' + ${theDate}" class="funny" />
+	<hr>
+
+	<div class="mt-4 ml-5">
+		<a th:href="@{/starwars/swvehicles/list}" class="btn btn-primary mb-4">Vehicles interactive List</a>
+	</div>
+
+	<form th:action="@{/starwars/vehicles/page/}" class="form-inline mb-4 ml-5">
+		<input class="form-control mr-2 col-2" name="page" placeholder="Search by Page (1-4)"/>
+		<button class="btn btn-success" type="submit">Search</button>
+	</form>
+
+	<form th:action="@{/starwars/vehicles/id/}" class="form-inline mb-4 ml-5">
+		<input class="form-control mr-2 col-2" type="search" name="id" placeholder="Search by id (4-76)"/>
+		<button class="btn btn-success" type="submit">Search</button>
+	</form>
+
+	<form th:action="@{/starwars/vehicles/search/}" class="form-inline mb-4 ml-5">
+		<input class="form-control mr-2 col-2" type="search" name="name" placeholder="Search by Name"/>
+		<button class="btn btn-success" type="submit">Search</button>
+	</form>
+
+	<div class="mb-4 ml-5">
+		<a th:href="@{/starwars/vehicles}" class="btn btn-primary">All Vehicles</a>
+	</div>
+	
+	<hr>
+
+	<div class="mt-4 ml-5">
+		<a th:href="@{/starwars/menu}" class="btn btn-info btn-sm">Back to the Main Menu</a>
+	</div>
+	
+	<img class="mt-4 ml-5" th:src="@{/images/d12db247deace4b2fac10c5a10b5042b.jpg}"/>
 
 </body>
-
 </html>

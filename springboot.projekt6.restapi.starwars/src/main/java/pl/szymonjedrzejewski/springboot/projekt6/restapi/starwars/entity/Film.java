@@ -22,7 +22,7 @@ public class Film {
 	private String title;
 	
 	@Column(name = "episode_id")
-	private int episode_id;
+	private String episode_id;
 	
 	@Column(name = "opening_crawl")
 	private String opening_crawl;
@@ -40,7 +40,7 @@ public class Film {
 		
 	}
 
-	public Film(String title, int episode_id, String opening_crawl, String director, String producer,
+	public Film(String title, String episode_id, String opening_crawl, String director, String producer,
 			String release_date) {
 		this.title = title;
 		this.episode_id = episode_id;
@@ -66,11 +66,11 @@ public class Film {
 		this.title = title;
 	}
 
-	public int getEpisode_id() {
+	public String getEpisode_id() {
 		return episode_id;
 	}
 
-	public void setEpisode_id(int episode_id) {
+	public void setEpisode_id(String episode_id) {
 		this.episode_id = episode_id;
 	}
 

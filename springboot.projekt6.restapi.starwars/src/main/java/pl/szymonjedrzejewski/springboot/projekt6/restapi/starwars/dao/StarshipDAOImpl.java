@@ -75,12 +75,12 @@ public class StarshipDAOImpl implements StarshipDAO {
 		
 		Session currentSession = entityManager.unwrap(Session.class);
 		
-		Query <Starship> theQuery = currentSession.createQuery("from Starship where name=:name", Starship.class);
+		Query <Starship> theQuery = currentSession.createQuery("from Starship where name like :name", Starship.class);
 		
-		theQuery.setParameter("name", theName);
-		
+		theQuery.setParameter("name", "%" + theName + "%");
+
 		List <Starship> starships = theQuery.getResultList();
-		
+
 		return starships;
 	}
 }

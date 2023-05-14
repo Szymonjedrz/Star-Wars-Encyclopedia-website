@@ -75,9 +75,9 @@ public class SWCharacterDAOImpl implements SWCharacterDAO {
 		
 		Session currentSession = entityManager.unwrap(Session.class);
 		
-		Query <SWCharacter> theQuery = currentSession.createQuery("from SWCharacter where name=:name", SWCharacter.class);
+		Query <SWCharacter> theQuery = currentSession.createQuery("from SWCharacter where name like :name", SWCharacter.class);
 		
-		theQuery.setParameter("name", theName);
+		theQuery.setParameter("name", "%" + theName + "%");
 		
 		List <SWCharacter> characters = theQuery.getResultList();
 		

@@ -5,58 +5,57 @@
 	<title>Star Wars API</title>
 	
 	<!-- reference CSS file -->
-	<link rel="stylesheet"
-		  th:href="@{/css/demo.css}" />
-		  
+	<link rel="stylesheet" th:href="@{/css/demo.css}" />
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<link href="https://fonts.cdnfonts.com/css/star-wars" rel="stylesheet">
+	<style>
+		body {
+			font-family: 'Star Wars', sans-serif;
+		}
+	</style>
 </head>
 
 <body>
 
-	<h2>Star Wars Characters Menu</h2>
-	<hr>
-	
-	<p>
-		<a th:href="@{/starwars/characters}">All Characters</a>
-	</p>
-	
-	<form th:action="@{/starwars/characters/page/}">
-	<p>
-		<a>Search for Characters by Page (1-9):</a>
-		<input type="search" name="page" />
-		<input type="submit" value="Search" />
-	</p>
-	</form>
-	
-	<form th:action="@{/starwars/characters/id/}">
-	<p>
-		<a>Search for Characters by Id (1-83):</a>
-		<input type="search" name="id" />
-		<input type="submit" value="Search" />
-	</p>
-	</form>
-	
-	<form th:action="@{/starwars/characters/search/}">
-	<p>
-		<a>Search for Characters by Name:</a>
-		<input type="search" name="name" />
-		<input type="submit" value="Search" />
-	</p>
-	</form>
-	
-	<p>
-		<a th:href="@{/starwars/swcharacters/list}">Characters Interactive List</a>
-	</p>
-	
-	<hr>
-	
-	<p>
-		<a th:href="@{/starwars/menu}">Back to the Main Menu</a>
-	</p>
-	
-	<img th:src="@{/images/star-wars-terms.png}"/>
+	<div class="mt-3 ml-5">
+		<h2>Star Wars Characters Menu</h2>
+	</div>
 
-	<p th:text="'Time on server is ' + ${theDate}" class="funny" />
+	<hr>
+
+	<div class="mt-4 ml-5">
+		<a th:href="@{/starwars/swcharacters/list}" class="btn btn-primary mb-4">Characters interactive List</a>
+	</div>
+	
+	<form th:action="@{/starwars/characters/page/}" class="form-inline mb-4 ml-5">
+		<input class="form-control mr-2 col-2" name="page" placeholder="Search by Page (1-9)"/>
+		<button class="btn btn-success" type="submit">Search</button>
+	</form>
+	
+	<form th:action="@{/starwars/characters/id/}" class="form-inline mb-4 ml-5">
+		<input class="form-control mr-2 col-2" type="search" name="id" placeholder="Search by id (1-83)"/>
+		<button class="btn btn-success" type="submit">Search</button>
+	</form>
+	
+	<form th:action="@{/starwars/characters/search/}" class="form-inline mb-4 ml-5">
+		<input class="form-control mr-2 col-2" type="search" name="name" placeholder="Search by Name"/>
+		<button class="btn btn-success" type="submit">Search</button>
+	</form>
+
+	<div class="mb-4 ml-5">
+		<a th:href="@{/starwars/characters}" class="btn btn-primary">All Characters</a>
+	</div>
+	
+	<hr>
+
+	<div class="mt-4 ml-5">
+		<a th:href="@{/starwars/menu}" class="btn btn-info btn-sm">Back to the Main Menu</a>
+	</div>
+	
+	<img class="mt-4 ml-5" th:src="@{/images/star-wars-terms.png}"/>
 
 </body>
-
 </html>

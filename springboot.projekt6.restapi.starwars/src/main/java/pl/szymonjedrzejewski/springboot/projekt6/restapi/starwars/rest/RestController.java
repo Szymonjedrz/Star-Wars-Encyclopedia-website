@@ -836,7 +836,7 @@ public class RestController {
 		
 		ModelAndView modelAndView = new ModelAndView();
 		
-		modelAndView.setViewName("helloworld");
+		modelAndView.setViewName("startingpage");
 		
 		theModel.addAttribute("theDate", new java.util.Date());
 		
@@ -848,7 +848,7 @@ public class RestController {
 		
 		ModelAndView modelAndView = new ModelAndView();
 		
-		modelAndView.setViewName("menu");
+		modelAndView.setViewName("mainmenu");
 		
 		theModel.addAttribute("theDate", new java.util.Date());
 		

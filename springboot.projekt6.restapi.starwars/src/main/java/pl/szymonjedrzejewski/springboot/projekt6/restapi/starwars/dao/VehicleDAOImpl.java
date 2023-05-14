@@ -75,9 +75,9 @@ public class VehicleDAOImpl implements VehicleDAO {
 		
 		Session currentSession = entityManager.unwrap(Session.class);
 		
-		Query <Vehicle> theQuery = currentSession.createQuery("from Vehicle where name=:name", Vehicle.class);
+		Query <Vehicle> theQuery = currentSession.createQuery("from Vehicle where name like :name", Vehicle.class);
 		
-		theQuery.setParameter("name", theName);
+		theQuery.setParameter("name", "%" + theName + "%");
 		
 		List <Vehicle> vehicles = theQuery.getResultList();
 		

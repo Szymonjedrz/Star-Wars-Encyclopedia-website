@@ -2,26 +2,34 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+	<!-- reference CSS file -->
+	<link rel="stylesheet" th:href="@{/css/demo.css}" />
+
+	<link href="https://fonts.cdnfonts.com/css/star-wars" rel="stylesheet">
+	<style>
+		body {
+			font-family: 'Star Wars', sans-serif;
+		}
+	</style>
 
 	<title>Star Wars API</title>
 </head>
 
 <body>
 
-	<div class="container">
-	
-		<h3>Star Wars Vehicles List</h3>
+	<div>
+		<div class="mt-3 ml-5">
+			<h2>Star Wars Vehicles List</h2>
+		</div>
+
 		<hr>
 		
-		<p class="h4 mb-4">Save Vehicle</p>
+		<p class="h4 mb-4 ml-5">Add star Wars Vehicle</p>
 	
-		<form th:action="@{/starwars/swvehicles/save}"
+		<form class="ml-5" th:action="@{/starwars/swvehicles/save}"
 			  th:object="${vehicle}" method="POST">
 		
 			<input type="hidden" th:field="*{id}" />
@@ -36,13 +44,13 @@
 					class="form-control mb-4 col-4" placeholder="Manufacturer">
 					
 			<input type="text" th:field="*{cost_in_credits}"
-					class="form-control mb-4 col-4" placeholder="Cost In Credits">
+					class="form-control mb-4 col-4" placeholder="Cost in Credits">
 
 			<input type="text" th:field="*{length}"
 					class="form-control mb-4 col-4" placeholder="Length">
 
 			<input type="text" th:field="*{max_atmosphering_speed}"
-					class="form-control mb-4 col-4" placeholder="Max Atmosphering Speed">
+					class="form-control mb-4 col-4" placeholder="Max Atmosphering speed">
 					
 			<input type="text" th:field="*{crew}"
 					class="form-control mb-4 col-4" placeholder="Crew">
@@ -59,16 +67,17 @@
 			<input type="text" th:field="*{vehicle_class}"
 					class="form-control mb-4 col-4" placeholder="Vehicle Class">
 				
-			<button type="submit" class="btn btn-info col-2">Save</button>
-						
+			<button type="submit" class="btn btn-primary col-2">Save Vehicle</button>
 		</form>
 	
 		<hr>
-		<a th:href="@{/starwars/swvehicles/list}">Back to the Vehicles List</a>
+
+		<div class="mt-3 mb-3 ml-5">
+			<a th:href="@{/starwars/swvehicles/list}" class="btn btn-info">Back to the Vehicles List</a>
+		</div>
 		
 	</div>
 </body>
-
 </html>
 
 

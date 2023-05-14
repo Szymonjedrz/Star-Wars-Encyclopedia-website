@@ -75,9 +75,9 @@ public class SpiecesDAOImpl implements SpeciesDAO {
 		
 		Session currentSession = entityManager.unwrap(Session.class);
 		
-		Query <Species> theQuery = currentSession.createQuery("from Species where name=:name", Species.class);
+		Query <Species> theQuery = currentSession.createQuery("from Species where name like :name", Species.class);
 		
-		theQuery.setParameter("name", theName);
+		theQuery.setParameter("name", "%" + theName + "%");
 		
 		List <Species> species = theQuery.getResultList();
 		
